@@ -6,7 +6,7 @@ import (
 	"sync"
 )
 
-var mu sync.Mutex // evita problemas de concorrência
+var mu sync.Mutex 
 
 const dataFile = "tasks.json"
 
@@ -16,7 +16,7 @@ func loadTasks() ([]Task, error) {
 
 	file, err := os.Open(dataFile)
 	if os.IsNotExist(err) {
-		return []Task{}, nil // se o arquivo não existir, retorna lista vazia
+		return []Task{}, nil 
 	} else if err != nil {
 		return nil, err
 	}
@@ -24,7 +24,7 @@ func loadTasks() ([]Task, error) {
 
 	var tasks []Task
 	if err := json.NewDecoder(file).Decode(&tasks); err != nil {
-		return []Task{}, nil // se der erro de parse, começa vazio
+		return []Task{}, nil 
 	}
 
 	return tasks, nil
@@ -41,6 +41,6 @@ func saveTasks(tasks []Task) error {
 	defer file.Close()
 
 	encoder := json.NewEncoder(file)
-	encoder.SetIndent("", "  ") // deixa formatado
+	encoder.SetIndent("", "  ") 
 	return encoder.Encode(tasks)
 }

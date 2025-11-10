@@ -8,7 +8,7 @@ import (
 func main() {
 	router := gin.Default()
 
-	// Configuração de CORS para permitir requisições do frontend
+	
 	router.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"http://localhost:5173"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE"},
@@ -16,7 +16,7 @@ func main() {
 		AllowCredentials: true,
 	}))
 
-	// Rotas
+	
 	router.GET("/tasks", GetTasks)
 	router.POST("/tasks", CreateTask)
 	router.PUT("/tasks/:id", UpdateTask)

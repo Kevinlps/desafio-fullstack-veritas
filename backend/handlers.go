@@ -10,7 +10,7 @@ import (
 var tasks []Task
 
 func init() {
-	// Carrega as tarefas do arquivo ao iniciar o servidor
+	
 	loaded, err := loadTasks()
 	if err == nil {
 		tasks = loaded
