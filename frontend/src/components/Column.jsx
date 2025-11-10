@@ -1,10 +1,12 @@
 import { Droppable } from '@hello-pangea/dnd';
 import Task from './Task';
 
-function Column({ title, id, tasks, onDelete, onStatusChange }) {
+function Column({ title, id, tasks, onDelete, onEdit, onStatusChange }) { 
   return (
     <div className="bg-white rounded-lg shadow">
-      <div className="p-4 border-b font-bold">{title} ({tasks.length})</div>
+      <div className="p-4 border-b font-bold">
+        {title} ({tasks.length})
+      </div>
       <Droppable droppableId={id}>
         {(provided) => (
           <div
@@ -18,6 +20,7 @@ function Column({ title, id, tasks, onDelete, onStatusChange }) {
                 task={task}
                 index={index}
                 onDelete={() => onDelete(task.id, id)}
+                onEdit={() => onEdit(task)} 
                 onStatusChange={onStatusChange}
               />
             ))}

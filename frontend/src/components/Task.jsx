@@ -1,22 +1,17 @@
 import { Draggable } from '@hello-pangea/dnd';
+import { useTaskConfig } from '../hooks/useTaskConfig';
 
-function Task({ task, index, onDelete, onStatusChange }) {
-  const statusConfig = {
-    'todo': { label: '📝 A Fazer', color: 'bg-gray-100 text-gray-700 border-gray-300' },
-    'in-progress': { label: '⚡ Em Progresso', color: 'bg-yellow-100 text-yellow-700 border-yellow-300' },
-    'done': { label: '✅ Concluído', color: 'bg-green-100 text-green-700 border-green-300' }
-  };
+function Task({ task, index, onDelete, onStatusChange, onEdit }) {
+  const { statusConfig } = useTaskConfig();
 
   return (
     <Draggable draggableId={String(task.id)} index={index}>
-      {(provided, snapshot) => (
+      {(provided) => (
         <div
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className={`bg-white border-2 rounded-lg p-4 mb-3 transition-all ${
-            snapshot.isDragging ? 'shadow-2xl rotate-2 border-blue-400' : 'shadow-sm hover:shadow-md border-gray-200'
-          }`}
+          className="bg-white border-2 rounded-lg p-4 mb-3"
         >
           <h3 className="font-semibold text-gray-800 mb-3">{task.title}</h3>
           
@@ -36,12 +31,20 @@ function Task({ task, index, onDelete, onStatusChange }) {
               ))}
             </select>
 
-            <button
-              onClick={(e) => { e.stopPropagation(); onDelete(); }}
-              className="text-red-500 hover:text-red-700 hover:bg-red-50 px-3 py-2 rounded-md text-sm transition-all"
-            >
-              🗑️
-            </button>
+            <div className="flex gap-2">
+              <button
+                onClick={(e) => { e.stopPropagation(); onEdit(task); }}
+                className="text-blue-500 hover:text-blue-700 hover:bg-blue-50 px-3 py-2 rounded-md text-sm transition-all"
+              >
+                📝 Editar
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); onDelete(); }}
+                className="text-red-500 hover:text-red-700 hover:bg-red-50 px-3 py-2 rounded-md text-sm transition-all"
+              >
+                🗑️ Deletar
+              </button>
+            </div>
           </div>
         </div>
       )}
