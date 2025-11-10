@@ -1,12 +1,12 @@
 const API = 'http://localhost:8000';
 
 export const taskService = {
-  // Buscar todas as tarefas
+
   async fetchTasks() {
     const response = await fetch(`${API}/tasks`);
     const data = await response.json();
     
-    // Organiza as tarefas por status
+
     const organized = { todo: [], 'in-progress': [], done: [] };
     data.forEach(task => {
       if (organized[task.status]) {
@@ -16,7 +16,7 @@ export const taskService = {
     return organized;
   },
 
-  // Criar nova tarefa
+
   async createTask(title, description) {
     const response = await fetch(`${API}/tasks`, {
       method: 'POST',
@@ -26,7 +26,7 @@ export const taskService = {
     return await response.json();
   },
 
-  // Atualizar tarefa
+
   async updateTask(taskId, updatedTask) {
     const response = await fetch(`${API}/tasks/${taskId}`, {
       method: 'PUT',
@@ -36,7 +36,7 @@ export const taskService = {
     return await response.json();
   },
 
-  // Deletar tarefa
+
   async deleteTask(taskId) {
     await fetch(`${API}/tasks/${taskId}`, { 
       method: 'DELETE' 

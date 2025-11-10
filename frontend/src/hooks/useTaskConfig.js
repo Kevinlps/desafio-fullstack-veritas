@@ -2,7 +2,7 @@ export function useTaskConfig() {
   const statusConfig = {
     'todo': { 
       label: ' A Fazer', 
-      color: 'bg-gray-100 text-gray-700 border-gray-300' 
+      color: 'bg-blue-100 text-blue-700 border-blue-300' 
     },
     'in-progress': { 
       label: ' Em Progresso', 

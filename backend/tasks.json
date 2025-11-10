@@ -3,13 +3,13 @@
     "id": 2,
     "title": "Estudar React e TypeScript",
     "description": "Montar frontend moderno",
-    "status": "done"
+    "status": "in-progress"
   },
   {
     "id": 3,
     "title": "estudar para fazer testes 2 update teste",
     "description": "estudar testes em go e react",
-    "status": "in-progress"
+    "status": "done"
   },
   {
     "id": 5,
@@ -19,8 +19,8 @@
   },
   {
     "id": 6,
-    "title": "passear com o cachorro ",
-    "description": "19:00h ",
-    "status": "todo"
+    "title": "task",
+    "description": "new task !!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    "status": "in-progress"
   }
 ]

@@ -29,10 +29,10 @@ function App() {
   if (loading) return <div className="p-8 text-center">Carregando...</div>;
 
     return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-cyan-50 p-8">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Kanban Veritas</h1>
+        <div className="flex justify-between items-center mb-8 bg-gray-800 p-4 rounded-lg">
+          <h1 className="text-3xl font-bold text-white">Kanban Veritas</h1>
           <button
             onClick={() => setShowForm(!showForm)}
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
