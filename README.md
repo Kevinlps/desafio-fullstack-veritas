@@ -111,6 +111,7 @@ Resumo do comportamento:
 ### 🧾 Documentação
 Documento	Descrição
 User Flow	Mostra o passo a passo de interação do usuário no sistema.
+![User Flow](./docs/user-flow.png)
 
 ### 💻 Autor
 Kevin Lopes Costa
